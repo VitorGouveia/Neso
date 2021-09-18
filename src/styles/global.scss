@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  width: 100%;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  background: #121214;
+}
+
+:root {
+  --accent: #6a1b9a;
+  --accent-light: #9c4dcc;
+  --accent-dark: #38006b;
+}
