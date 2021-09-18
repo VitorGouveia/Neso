@@ -17,6 +17,10 @@ body,
   --accent: #6a1b9a;
   --accent-light: #9c4dcc;
   --accent-dark: #38006b;
+
+  --repeat: 3;
+  --unit: 1fr;
+  --columns: repeat(var(--repeat), var(--unit));
 }
 
 button {

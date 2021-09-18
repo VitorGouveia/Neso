@@ -49,8 +49,9 @@ export const Item: FC<ItemProps> = ({ element, elementName, type }) => {
   return (
     <motion.li className={styles.item} layout initial={{ borderRadius: 4 }}>
       <motion.div onClick={toggleOpen} className={styles.grid} layout>
-        <span className={styles.title}>{element}</span>
-        <span className={styles.element}>{elementName}</span>
+        <span>{element}</span>
+        <span>{elementName}</span>
+        <span>{type}</span>
       </motion.div>
       <AnimatePresence>
         {isOpen && <Content ion={{ elementName, element, type }} />}

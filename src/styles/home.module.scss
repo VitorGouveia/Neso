@@ -50,7 +50,7 @@
     }
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: var(--columns);
     background: #363f5f;
     border-radius: 0.3rem;
   }

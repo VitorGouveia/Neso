@@ -12,15 +12,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.title {
-  grid-column: 1;
-}
-
-.element {
-  grid-column: 2;
+  grid-template-columns: var(--columns);
 }
 
 .content {

@@ -14,11 +14,16 @@
     "framer-motion": "^4.1.17",
     "next": "11.1.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-feather": "^2.0.9",
+    "underscore": "^1.13.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/react": "17.0.21",
+    "@types/underscore": "^1.11.3",
+    "@types/uuid": "^8.3.1",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "7.32.0",

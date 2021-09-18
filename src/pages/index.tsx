@@ -1,18 +1,52 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { GetServerSideProps } from 'next';
-import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
+import { AnimateSharedLayout, motion } from 'framer-motion';
+import { ArrowDown, ArrowUp } from 'react-feather';
+import { v4 as uuid } from 'uuid';
 
 import { api } from '@services';
 import { Item } from '@components';
 import { IonType } from './api/ions';
 
 import styles from '@styles/home.module.scss';
+import _ from 'underscore';
 
 type HomeProps = {
   ions: IonType[];
 };
 
 const Home: FC<HomeProps> = ({ ions }) => {
+  const [isTypeSort, setIsTypeSort] = useState(false);
+
+  const toggleTypeSort = () => {
+    setIsTypeSort(!isTypeSort);
+  };
+
+  const anions = ions.filter(ion => ion.type === 'anion');
+  const cations = ions.filter(ion => ion.type === 'cation');
+
+  let list: JSX.Element[] | null = null;
+
+  if (isTypeSort) {
+    list = [...cations, ...anions].map(({ type, element, elementName }) => (
+      <Item
+        type={type}
+        element={element}
+        elementName={elementName}
+        key={uuid()}
+      />
+    ));
+  } else {
+    list = [...anions, ...cations].map(({ type, element, elementName }) => (
+      <Item
+        type={type}
+        element={element}
+        elementName={elementName}
+        key={uuid()}
+      />
+    ));
+  }
+
   return (
     <AnimateSharedLayout type="crossfade">
       <motion.header className={styles.header}>
@@ -23,17 +57,23 @@ const Home: FC<HomeProps> = ({ ions }) => {
         <motion.ul className={styles.table}>
           <div>
             <li data-title={true}>Elemento</li>
-            <li data-title={true}>Nome</li>
+            <li>
+              Nome
+              <ArrowUp size={12} color="#fff" strokeWidth={5} />
+              <ArrowDown size={12} color="#fff" strokeWidth={5} />
+            </li>
+
+            <li onClick={toggleTypeSort}>
+              Tipo
+              {isTypeSort ? (
+                <ArrowUp size={12} color="#fff" strokeWidth={5} />
+              ) : (
+                <ArrowDown size={12} color="#fff" strokeWidth={5} />
+              )}
+            </li>
           </div>
 
-          {ions.map(({ type, element, elementName }) => (
-            <Item
-              type={type}
-              element={element}
-              elementName={elementName}
-              key={elementName}
-            />
-          ))}
+          {list}
         </motion.ul>
       </motion.main>
     </AnimateSharedLayout>
