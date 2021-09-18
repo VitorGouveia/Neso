@@ -55,23 +55,19 @@ const Home: FC<HomeProps> = ({ ions }) => {
 
       <motion.main className={styles.main}>
         <motion.ul className={styles.table}>
-          <div>
-            <li data-title={true}>Elemento</li>
-            <li>
-              Nome
-              <ArrowUp size={12} color="#fff" strokeWidth={5} />
-              <ArrowDown size={12} color="#fff" strokeWidth={5} />
-            </li>
+          <motion.div>
+            <motion.li data-title={true}>Elemento</motion.li>
+            <motion.li>Nome</motion.li>
 
-            <li onClick={toggleTypeSort}>
+            <motion.li data-action={true} onClick={toggleTypeSort}>
               Tipo
               {isTypeSort ? (
                 <ArrowUp size={12} color="#fff" strokeWidth={5} />
               ) : (
                 <ArrowDown size={12} color="#fff" strokeWidth={5} />
               )}
-            </li>
-          </div>
+            </motion.li>
+          </motion.div>
 
           {list}
         </motion.ul>

@@ -14,9 +14,12 @@ body,
 }
 
 :root {
-  --accent: #6a1b9a;
-  --accent-light: #9c4dcc;
-  --accent-dark: #38006b;
+  --hue: 160;
+  --saturation: 50%;
+  --lightness: 20%;
+  --accent: hsl(var(--hue), var(--saturation), var(--saturation));
+  --accent-light: hsl(var(--hue), var(--saturation), 50%);
+  --accent-dark: hsl(var(--hue), var(--saturation), 20%);
 
   --repeat: 3;
   --unit: 1fr;
@@ -29,4 +32,29 @@ button {
   border-radius: 0.6rem;
   color: #fff;
   font-weight: bold;
+}
+
+::-webkit-selection {
+  color: var(--accent);
+  background: hsl(285, 37%, 60%);
+}
+
+::-webkit-scrollbar {
+  width: 1.2rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0e11;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  border: 7px solid transparent;
+  background-clip: content-box;
+  background-color: hsl(0, 0%, 31%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
+  cursor: pointer;
 }
