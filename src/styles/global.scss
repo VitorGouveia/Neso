@@ -18,3 +18,11 @@ body,
   --accent-light: #9c4dcc;
   --accent-dark: #38006b;
 }
+
+button {
+  outline: 0;
+  border: 0;
+  border-radius: 0.6rem;
+  color: #fff;
+  font-weight: bold;
+}

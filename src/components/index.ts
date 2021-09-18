@@ -1,1 +1,1 @@
-export { Content, Item } from './item';
+export { Item } from './item';
